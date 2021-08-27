@@ -76,9 +76,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
 
+<<<<<<< HEAD
 #define ONESHOT_TAP_TOGGLE 2  /* Tapping this number of times holds the key until tapped once again. */
 #define ONESHOT_TIMEOUT 1000  /* Time (in ms) before the one shot key is released */
 
 
 #define TAPPING_TERM 100
 #define COMBO_TERM 100
+=======
+#define ONESHOT_TAP_TOGGLE      2       /* Tapping this number of times holds the key until tapped once again. */
+#define ONESHOT_TIMEOUT         2000    /* Time (in ms) before the one shot key is released */
+#define TAPPING_TERM            200     /* Maximum time (in ms) allowed between taps of Tap Dance key */
+#define TAPPING_TOGGLE          2       /* Tapping this number of times to toggle a layer */
+>>>>>>> 852fedccb6... Create first version of engram customized keymap
