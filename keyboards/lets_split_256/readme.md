@@ -41,7 +41,7 @@ lets_split_256_rev1_YOUR_KEYMAP_NAME.hex
 For more information on customizing keymaps, take a look at the primary documentation for [Customizing Your Keymap](/docs/faq_keymap.md) in the main readme.md.
 
 ## Flashing
--------
+
 You can flash your firmware using QMK toolbox, or follow the guide below using a Linux type command prompt (e.g. git BASH, mingw...)
 
 ### Flash EEPROM
@@ -62,7 +62,7 @@ avrdude -p atmega32u4 -P $(COM_PORT) -c avr109 -U eeprom:w:"./quantum/split_comm
 
 Note that EEPROM only needs to be flashed once. If you change your keymaps later on, you don't need to flash EEPROM again.
 
-###Flash firmware
+### Flash firmware
 
 From the top level `qmk_firmware` directory run while your Pro Micro is in bootloader mode:
 
