@@ -12,6 +12,7 @@ based boards.
 
 ## First Time Setup
 Download and install qmkmsys following guide from https://msys.qmk.fm/
+
 Download or clone the `qmk_firmware` repo and setup qmkmsys to its top level directory `qmk_firmware`. Once your build environment is setup, you'll be able to generate the default .hex in qmkmsys CLI using:
 
 ```
@@ -39,11 +40,11 @@ lets_split_256_rev1_YOUR_KEYMAP_NAME.hex
 
 For more information on customizing keymaps, take a look at the primary documentation for [Customizing Your Keymap](/docs/faq_keymap.md) in the main readme.md.
 
-##Flashing
+## Flashing
 -------
 You can flash your firmware using QMK toolbox, or follow the guide below using a Linux type command prompt (e.g. git BASH, mingw...)
 
-###Flash EEPROM
+### Flash EEPROM
 
 The EEPROM is used to store whether the half is left handed or right handed. This makes it so that the same firmware file will run on both hands instead of having to flash left and right handed versions of the firmware to each half. To flash the EEPROM file:
 
