@@ -117,3 +117,150 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         )
 };
 
+enum combo_events {
+    YU_COPY,
+    IA_PASTE,
+    XK_CUT,
+    IEA_CLIP_HISTORY,
+    YO_SELECT_HOME,
+    OU_SELECT_END,
+    IE_SELECT_LSTART,
+    EA_SELECT_LEND,
+    HT_NEW_TAB,
+    TS_NEW_ICOG_TAB,
+    HTS_REOPEN_TAB,
+    LD_MOVE_LINE_UP,
+    CM_MOVE_LINE_DOWN,
+    DW_SAVE,
+    MF_UNDO,
+    FP_REDO,
+    JK_MARK_READ
+};
+
+const uint16_t PROGMEM copy_combo[] = {KC_Y, KC_U, COMBO_END};
+const uint16_t PROGMEM paste_combo[] = {KC_I, KC_A, COMBO_END};
+const uint16_t PROGMEM cut_combo[] = {KC_X, KC_K, COMBO_END};
+const uint16_t PROGMEM clip_history_combo[] = {KC_I, KC_E, KC_A, COMBO_END};
+const uint16_t PROGMEM select_home_combo[] = {KC_Y, KC_O, COMBO_END};
+const uint16_t PROGMEM select_end_combo[] = {KC_O, KC_U, COMBO_END};
+const uint16_t PROGMEM select_lstart_combo[] = {KC_I, KC_E, COMBO_END};
+const uint16_t PROGMEM select_lend_combo[] = {KC_E, KC_A, COMBO_END};
+const uint16_t PROGMEM new_tab_combo[] = {KC_H, KC_T, COMBO_END};
+const uint16_t PROGMEM new_icog_tab_combo[] = {KC_T, KC_S, COMBO_END};
+const uint16_t PROGMEM reopen_tab_combo[] = {KC_H, KC_T, KC_S, COMBO_END};
+const uint16_t PROGMEM move_line_up_combo[] = {KC_L, KC_D, COMBO_END};
+const uint16_t PROGMEM move_line_down_combo[] = {KC_C, KC_M, COMBO_END};
+const uint16_t PROGMEM save_combo[] = {KC_D, KC_W, COMBO_END};
+const uint16_t PROGMEM undo_combo[] = {KC_M, KC_F, COMBO_END};
+const uint16_t PROGMEM redo_combo[] = {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM mark_read_combo[] = {KC_J, KC_K, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+  [YU_COPY] = COMBO_ACTION(copy_combo),
+  [IA_PASTE] = COMBO_ACTION(paste_combo),
+  [XK_CUT] = COMBO_ACTION(cut_combo),
+  [IEA_CLIP_HISTORY] = COMBO_ACTION(clip_history_combo),
+  [YO_SELECT_HOME] = COMBO_ACTION(select_home_combo),
+  [OU_SELECT_END] = COMBO_ACTION(select_end_combo),
+  [IE_SELECT_LSTART] = COMBO_ACTION(select_lstart_combo),
+  [EA_SELECT_LEND] = COMBO_ACTION(select_lend_combo),
+  [HT_NEW_TAB] = COMBO_ACTION(new_tab_combo),
+  [TS_NEW_ICOG_TAB] = COMBO_ACTION(new_icog_tab_combo),
+  [HTS_REOPEN_TAB] = COMBO_ACTION(reopen_tab_combo),
+  [LD_MOVE_LINE_UP] = COMBO_ACTION(move_line_up_combo),
+  [CM_MOVE_LINE_DOWN] = COMBO_ACTION(move_line_down_combo),
+  [DW_SAVE] = COMBO_ACTION(save_combo),
+  [MF_UNDO] = COMBO_ACTION(undo_combo),
+  [FP_REDO] = COMBO_ACTION(redo_combo),
+  [JK_MARK_READ] = COMBO_ACTION(mark_read_combo)
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+    switch(combo_index) {
+        case YU_COPY:
+            if (pressed) {
+                tap_code16(C(KC_C));
+            }
+            break;
+        case IA_PASTE:
+            if (pressed) {
+                tap_code16(C(KC_V));
+            }
+            break;
+        case XK_CUT:
+            if (pressed) {
+                tap_code16(C(KC_X));
+            }
+            break;
+        case IEA_CLIP_HISTORY:
+            if (pressed) {
+                tap_code16(G(KC_V));
+            }
+            break;
+        case YO_SELECT_HOME:
+            if (pressed) {
+                tap_code16(C(S(KC_HOME)));
+            }
+            break;
+        case OU_SELECT_END:
+            if (pressed) {
+                tap_code16(C(S(KC_END)));
+            }
+            break;
+        case IE_SELECT_LSTART:
+            if (pressed) {
+                tap_code16(S(KC_HOME));
+            }
+            break;
+        case EA_SELECT_LEND:
+            if (pressed) {
+                tap_code16(S(KC_END));
+            }
+            break;
+        case HT_NEW_TAB:
+            if (pressed) {
+                tap_code16(C(KC_T));
+            }
+            break;
+        case TS_NEW_ICOG_TAB:
+            if (pressed) {
+                tap_code16(C(S(KC_N)));
+            }
+            break;
+        case HTS_REOPEN_TAB:
+            if (pressed) {
+                tap_code16(C(S(KC_T)));
+            }
+            break;
+        case LD_MOVE_LINE_UP:
+            if (pressed) {
+                tap_code16(C(S(KC_UP)));
+            }
+            break;
+        case CM_MOVE_LINE_DOWN:
+            if (pressed) {
+                tap_code16(C(S(KC_DOWN)));
+            }
+            break;
+        case DW_SAVE:
+            if (pressed) {
+                tap_code16(C(KC_S));
+            }
+            break;
+        case MF_UNDO:
+            if (pressed) {
+                tap_code16(C(KC_Z));
+            }
+            break;
+        case FP_REDO:
+            if (pressed) {
+                tap_code16(C(KC_Y));
+            }
+            break;
+        case JK_MARK_READ:
+            if (pressed) {
+                tap_code16(C(KC_ENT));
+            }
+            break;
+    }
+}
