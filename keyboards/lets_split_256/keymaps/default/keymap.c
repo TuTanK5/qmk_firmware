@@ -1,17 +1,14 @@
 #include QMK_KEYBOARD_H
 
-// Each layer gets a name for readability, which is then used in the keymap matrix below.
-// The underscores don't mean anything - you can have a layer called STUFF or any other name.
-// Layer names don't all need to be of the same length, obviously, and you can also skip them
-// entirely and just use numbers.
-
 #define KC_W_CAP          MT(MOD_LGUI, KC_CAPS)
 #define KC_S_SFT          OSM(MOD_LSFT)
-// #define KC_SFCTL          ACTION_MODS(MOD_LCTL | MOD_LSFT)
+
 #define KC_F1_CAPS        LT(1, KC_CAPS)
 #define KC_F1_QUOT        LT(1, KC_QUOTE)
 #define KC_F2_TAB         LT(2, KC_TAB)
 #define KC_F2_LBRC        LT(2, KC_LBRACKET)
+
+combo_t key_combos[COMBO_COUNT] = {};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [0] = LAYOUT_ortho_5x12(
