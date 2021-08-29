@@ -78,5 +78,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define ONESHOT_TAP_TOGGLE      2       /* Tapping this number of times holds the key until tapped once again. */
 #define ONESHOT_TIMEOUT         2000    /* Time (in ms) before the one shot key is released */
-#define TAPPING_TERM            200     /* Maximum time (in ms) allowed between taps of Tap Dance key */
+#define TAPPING_TERM            180     /* Maximum time (in ms) allowed between taps of Tap Dance key */
 #define TAPPING_TOGGLE          2       /* Tapping this number of times to toggle a layer */
+#define COMBO_TERM              30      /* Time out period (ms) for combos */

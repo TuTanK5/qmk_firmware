@@ -38,3 +38,5 @@ SPLIT_KEYBOARD = yes
 LAYOUTS = ortho_5x12
 
 DEFAULT_FOLDER = lets_split_256/rev1
+
+VPATH += keyboards/gboards
