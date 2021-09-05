@@ -80,5 +80,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ONESHOT_TIMEOUT 1000  /* Time (in ms) before the one shot key is released */
 
 
-#define TAPPING_TERM 100
-#define COMBO_TERM 100
+#define TAPPING_TERM 200
+#define COMBO_TERM 200
