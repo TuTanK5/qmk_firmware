@@ -3,8 +3,11 @@ import itertools
 
 
 def print_combinations():
-    MAX_COMBO_LENGTH = 4
+    MAX_COMBO_LENGTH = 3
     DEFINE_STRING = 'const uint16_t PROGMEM {combo_name}[] = {combo};'
+    COMBO_MAPPING = '//COMBO({combo_name}        , KC_combo_mapping),'
+
+    COMBO_MAPPING_INSTRUCTION = '\n    //Copy this section into keymap.c under "combo_t key_combos[] = {" then uncomment to use'
     COMMENT = '\n//===================================================================\n' \
               '//Combo sets for {} hand(s)\n' \
               '//==================================================================='
@@ -22,8 +25,8 @@ def print_combinations():
             ', '.join(['KC_##K' + str(j+1) for j in range(i)])
         )
 
-    left = ('A', 'S', 'E', 'R', 'SPC')
-    right = ('T', 'I', 'O', 'N', 'ENT')
+    left = ('R', 'N', 'O', 'T', 'SPC')
+    right = ('E', 'A', 'I', 'S', 'ENT')
 
     combo_dict = {'left': {}, 'right': {}, 'both': {}}
 
@@ -47,6 +50,10 @@ def print_combinations():
                 combo_name = 'combo_' + '_'.join(combo)
                 combo_definition = 'SET_COMBO({})'.format(','.join(combo))
                 print(DEFINE_STRING.format(combo_name=combo_name, combo=combo_definition), file=file)
+            print(COMBO_MAPPING_INSTRUCTION + DETAIL_COMMENT.format(i, hand) , file=file)
+            for combo in comboset[i]:
+                combo_name = 'combo_' + '_'.join(combo)
+                print(COMBO_MAPPING.format(combo_name=combo_name), file=file)
 
     file.close()
 
