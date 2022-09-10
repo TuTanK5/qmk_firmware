@@ -87,6 +87,7 @@ The `config.h` files can also be placed in sub-folders, and the order in which t
     * `keyboards/top_folder/sub_1/sub_2/config.h`
       * `keyboards/top_folder/sub_1/sub_2/sub_3/config.h`
         * `keyboards/top_folder/sub_1/sub_2/sub_3/sub_4/config.h`
+          * [`.build/objs_<keyboard>/src/info_config.h`](data_driven_config.md#add-code-to-generate-it) see [Data Driven Configuration](data_driven_config.md)
           * `users/a_user_folder/config.h`
           * `keyboards/top_folder/keymaps/a_keymap/config.h`
         * `keyboards/top_folder/sub_1/sub_2/sub_3/sub_4/post_config.h`
@@ -156,12 +157,12 @@ Many of the settings written in the `rules.mk` file are interpreted by `common_f
 The `post_rules.mk` file can interpret `features` of a keyboard-level before `common_features.mk`.  For example, when your designed keyboard has the option to implement backlighting or underglow using rgblight.c, writing the following in the `post_rules.mk` makes it easier for the user to configure the `rules.mk`.
 
 * `keyboards/top_folder/keymaps/a_keymap/rules.mk`
-  ```makefile
+  ```make
   # Please set the following according to the selection of the hardware implementation option.
   RGBLED_OPTION_TYPE = backlight   ## none, backlight or underglow
   ```
 * `keyboards/top_folder/post_rules.mk`
-  ```makefile
+  ```make
   ifeq ($(filter $(strip $(RGBLED_OPTION_TYPE))x, nonex backlightx underglowx x),)
      $(error unknown RGBLED_OPTION_TYPE value "$(RGBLED_OPTION_TYPE)")
   endif
@@ -254,8 +255,6 @@ The year should be the first year the file is created. If work was done to that 
 ## License
 
 The core of QMK is licensed under the [GNU General Public License](https://www.gnu.org/licenses/licenses.en.html). If you are shipping binaries for AVR processors you may choose either [GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) or [GPLv3](https://www.gnu.org/licenses/gpl.html). If you are shipping binaries for ARM processors you must choose [GPL Version 3](https://www.gnu.org/licenses/gpl.html) to comply with the [ChibiOS](https://www.chibios.org) GPLv3 license.
-
-If your keyboard makes use of the [uGFX](https://ugfx.io) features within QMK you must comply with the [uGFX License](https://ugfx.io/license.html), which requires a separate commercial license before selling a device containing uGFX.
 
 ## Technical Details
 
