@@ -53,11 +53,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-/* ws2812 RGB LED */
-#define RGB_DI_PIN D3
-
-#define RGBLED_NUM 12    // Number of LEDs
-
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
@@ -82,3 +77,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TERM 200
 #define COMBO_TERM 200
+                                                         
